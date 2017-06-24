@@ -1,18 +1,21 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-br">
 <head>
 <meta charset="utf-8">
-<title>Novo contato</title>
+<title>Salvar Contato</title>
 </head>
 
 <body>
-	<h1>Adiciona Contatos</h1>
+	<h1>Salvar Contatos</h1>
 	 <hr />
-	  <form action="adicionaContato">
-		Nome: <input type="text" name="nome" /><br />
-		E-mail: <input type="text" name="email" /><br />
-		Endereço: <input type="text" name="endereco" /><br />
-	  <input type="submit" value="Gravar" />
-	</form>
+		<form action="contatocontroller" method="post">
+		  	 ID  <input type="number" name="id" value=""/><br />
+			 Nome: <input type="text" name="nome" value=""/><br />
+			 Endereço: <input type="text" name="endereco" value=""/><br />
+			 E-mail: <input type="text" name="email" value=""/><br />
+		  <input type="submit" value="OK" />
+		</form> <br/>
+	
+		
 </body>
 </html>

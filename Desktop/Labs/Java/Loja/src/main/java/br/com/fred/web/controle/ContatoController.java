@@ -26,28 +26,30 @@ public class ContatoController extends HttpServlet {
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
-	  throws ServletException, IOException {
-		System.out.println("doPost"+ " : " + req);
-		  PrintWriter out = resp.getWriter();
-		  	
-		  	String id  = req.getParameter("id");
-	        String nm  = req.getParameter("nome");
-		    String end = req.getParameter("endereco");
-		    String em  = req.getParameter("email");
-			   	Contato ctt = new Contato();
-			  	   ctt.setNome(nm);
-			  	   ctt.setEndereco(end);
-			  	   ctt.setEmail(em);
-			  	 
-		  	   ContatoDAO dao = new ContatoDAO();
-		  	    dao.salvar(ctt);
-		  	     System.out.println("Salvo!");
-		  	      out.println("<html>");
-				  out.println("<body>");
-			        out.println("Contato:" + " " + ctt.getNome() + " " + " adicionado com sucesso");
-			      out.println("</html>");
-			      out.println("</body>");		  	  
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("doPost" + " : " + req);
+		PrintWriter out = resp.getWriter();
+
+		String id = req.getParameter("id");
+		String nm = req.getParameter("nome");
+		String end = req.getParameter("endereco");
+		String em = req.getParameter("email");
+		Contato ctt = new Contato();
+		if (id != null) {
+			ctt.setId(Integer.parseInt(id));
+		}
+		ctt.setNome(nm);
+		ctt.setEndereco(end);
+		ctt.setEmail(em);
+
+		ContatoDAO dao = new ContatoDAO();
+		dao.salvar(ctt);
+		System.out.println("Salvo!");
+		out.println("<html>");
+		out.println("<body>");
+		out.println("Contato:" + " " + ctt.getNome() + " " + " adicionado com sucesso");
+		out.println("</html>");
+		out.println("</body>");
 	}
 
 	@Override
